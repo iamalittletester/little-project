@@ -2,8 +2,8 @@ package com.imalittletester.typeconversions;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -35,11 +35,10 @@ class UsefulTypeConversionsTest {
 
     @Test
     void currentDateFormatted() {
-        String formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        String formattedDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now());
         System.out.println("formattedDate = " + formattedDate);
-        String formattedWithoutHour = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+
+        String formattedWithoutHour = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now());
         System.out.println("formattedWithoutHour = " + formattedWithoutHour);
-        String formattedFromMillis = new SimpleDateFormat("dd-MM-yy HH:mm").format(System.currentTimeMillis());
-        System.out.println("formattedFromMillis = " + formattedFromMillis);
     }
 }
