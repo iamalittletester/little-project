@@ -39,6 +39,12 @@
             <version>5.5.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.1.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -90,8 +96,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
