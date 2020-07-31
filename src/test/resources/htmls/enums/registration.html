@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+<div class="w3-container w3-teal w3-center">
+    <h1>Registration page</h1>
+</div>
+
+<form class="w3-container w3-card-4 w3-light-grey" name="myForm"
+      ng-app="registration" ng-controller="validateCtrl" novalidate>
+    <div class="w3-cell-row">
+        <div class="w3-container w3-cell">
+            <label for="firstName">First name</label><br>
+            <h6 class="w3-opacity w3-tiny">(Min 2. Max 20. Letters, '-', ' ' only.)</h6>
+            <input class="w3-border-0" id="firstName" name="firstName" ng-maxlength="20" ng-minlength="2"
+                   ng-model="firstName"
+                   ng-pattern="firstNamePattern" required type="text">
+            <div id="firstNameAlert" role="alert">
+                <span ng-show="myForm.firstName.$dirty && myForm.firstName.$invalid" style="color:red"/>
+                <span ng-show="myForm.firstName.$error.required">First name is required.</span>
+                <span ng-show="myForm.firstName.$error.minlength">Minimum length is 2.</span>
+                <span ng-show="myForm.firstName.$error.maxlength">Maximum length is 20.</span>
+                <span ng-show="myForm.firstName.$error.pattern">Input contains invalid characters.</span>
+            </div>
+            <label for="lastName">Last name</label><br>
+            <h6 class="w3-opacity w3-tiny">(Min 2. Max 15. Letters, '-', ' ' only.)</h6>
+            <input class="w3-border-0" id="lastName" maxlength="15" name="lastName" ng-minlength="2" ng-model="lastName"
+                   ng-pattern="firstNamePattern" required type="text">
+            <div id="lastNameAlert" role="alert">
+                <span ng-show="myForm.lastName.$dirty && myForm.lastName.$invalid" style="color:red"/>
+                <span ng-show="myForm.lastName.$error.required">First name is required.</span>
+                <span ng-show="myForm.lastName.$error.minlength">Minimum length is 2.</span>
+                <span ng-show="myForm.lastName.$error.pattern">Input contains invalid characters.</span>
+            </div>
+            <label for="email">Email</label><br>
+            <input class="w3-border-0" id="email" name="email" ng-model="email" required type="email">
+            <div id="emailAlert" role="alert">
+                <span ng-show="myForm.email.$dirty && myForm.email.$invalid" style="color:red"/>
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </div>
+        </div>
+
+        <div class="w3-container w3-cell">
+            <div class="w3-padding">
+                <label for="country">Country</label><br>
+                <select class="w3-border-0" id="country" ng-change="getSelectedCountry()"
+                        ng-model="countrySrc"
+                        ng-options="country for (country, cities) in countries" required>
+                    <option value=''></option>
+                </select>
+            </div>
+            <div class="w3-padding">
+                <label for="city">City</label><br>
+                <select class="w3-border-0" id="city" ng-disabled="!countrySrc" ng-model="citySrc"
+                        ng-options="city for city in countrySrc" required>
+                    <option value=''></option>
+                </select>
+            </div>
+            <div class="w3-padding">
+                <label for="phone">Phone number</label><br>
+                <h6 class="w3-opacity w3-tiny">(10 numbers.)</h6>
+                <input class="w3-border-0" id="phone" max="9999999999999999999" min="0" name="phone" ng-maxlength="10"
+                       type="number">
+            </div>
+        </div>
+    </div>
+    <p>
+        <input ng-disabled="myForm.$invalid" type="submit">
+    </p>
+</form>
+
+<script>
+var app = angular.module('registration', []);
+app.controller('validateCtrl', function($scope) {
+     $scope.firstNamePattern = /^[a-zA-Z\s-]*$/;
+     $scope.lastNamePattern = /^[a-zA-Z\s-]*$/;
+     $scope.countries = {
+            'Spain': ['Malaga','Madrid','Valencia','Corralejo'],
+            'Estonia': ['Tallinn', 'Haapsalu', 'Tartu'],
+            'Austria': ['Vienna', 'Salzburg', 'Innsbruck']
+          };
+
+          $scope.getSelectedCountry = function() {
+            $scope.strCountry = $scope.countrySrc;
+          };
+});
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
