@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $(function() {
+    $("#elementToDrag").draggable(); } );
+
+
+    </script>
+    <style>
+.tooltiptext {
+  visibility: hidden;
+  color: black;
+  background-color: white;
+  text-align: center;
+  border: 1px solid grey;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.droptarget {
+  height: 100px;
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="w3-panel w3-teal w3-center">
+    <p class="tooltip">Element to hover <span class="tooltiptext">Hover text displayed</span></p>
+</div>
+
+<div class="w3-panel w3-cyan w3-center">
+    <p id="elementToDoubleClick" ondblclick="doubleClick()">Element to double click</p>
+</div>
+
+<p class="w3-card-4 w3-center w3-sand" id="elementToDrag">Element to drag</p>
+<div class="droptarget w3-panel w3-pale-yellow w3-center">
+</div>
+
+<script>
+function doubleClick() {
+  document.getElementById("elementToDoubleClick").innerHTML = "The element was double clicked";
+}
+
+
+
+</script>
+</body>
+</html>
