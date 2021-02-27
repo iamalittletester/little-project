@@ -1,6 +1,6 @@
 package com.imalittletester.tp;
 
-import com.imalittletester.helpers.SetupHelper;
+import com.imalittletester.browser.SetupHelper;
 import com.imalittletester.pages.tp.ActionsPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.interactions.Actions;

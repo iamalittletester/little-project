@@ -1,6 +1,6 @@
 package com.imalittletester.hashmap;
 
-import com.imalittletester.helpers.SetupHelper;
+import com.imalittletester.browser.SetupHelper;
 import com.imalittletester.pages.HashMapPageObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

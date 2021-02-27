@@ -1,6 +1,6 @@
 package com.imalittletester.etc2020demo;
 
-import com.imalittletester.helpers.SetupHelper;
+import com.imalittletester.browser.SetupHelper;
 import com.imalittletester.pages.ETCDemoPage;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.*;

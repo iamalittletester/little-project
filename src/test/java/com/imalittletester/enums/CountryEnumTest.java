@@ -1,6 +1,6 @@
 package com.imalittletester.enums;
 
-import com.imalittletester.helpers.SetupHelper;
+import com.imalittletester.browser.SetupHelper;
 import com.imalittletester.helpers.enums.Country;
 import com.imalittletester.pages.enums.RegistrationPage;
 import org.junit.jupiter.api.*;
