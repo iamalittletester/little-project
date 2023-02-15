@@ -1,0 +1,49 @@
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var app = angular.module('clickArea', []);
+app.controller('myCtrl', function($scope) {
+    $scope.clickButton = function () {
+            $scope.successtext = "Success!";
+    }
+
+});
+$(document).ready(function () {
+        $(".floatNumberField").change(function() {
+            $(this).val(parseFloat($(this).val()).toFixed(2));
+        });
+    });
+</script>
+<head>
+    <style>
+h2   {color: yellow}
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="w3-padding-small w3-center w3-card-4">
+        <h1><i class="material-icons">assignment</i> Welcome to the interactions page<i
+                class="material-icons">build</i></h1>
+    </div>
+</header>
+<div ng-app="clickArea" ng-cloak ng-controller="myCtrl">
+<div class="w3-card-4 w3-margin w3-padding-small w3-left">
+    <h3>click()</h3>
+    <button id="buttonToClick" ng-click="clickButton()" class="w3-btn w3-padding w3-teal">Button</button>
+    <a id="linkToClick" href="https://www.example.com">Link</a><br>
+    <p class="successMessage w3-text-green">{{successtext}}</p>
+</div>
+    <div class="w3-card-4 w3-margin w3-padding-small w3-left" style="width:300px;">
+        <h3>sendKeys()</h3>
+        Basic text input: <input type="text">
+        </br>Input that formats with decimals: <input type="text" class="floatNumberField"/>
+
+    </div>
+</div>
+</body>
+</html>
