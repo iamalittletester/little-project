@@ -11,4 +11,9 @@ public class MainPage {
     //sendkeys
     @FindBy(css = "[type=\"text\"]") public WebElement textInput;
     @FindBy(className = "floatNumberField") public WebElement formattingInput;
+
+    //select
+    @FindBy(id = "tea") public WebElement teaDropdown;
+    @FindBy(id = "refreshment") public WebElement refreshmentDropdown;
+    @FindBy(id = "country") public WebElement countryDropdown;
 }

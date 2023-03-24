@@ -16,10 +16,22 @@ $(document).ready(function () {
             $(this).val(parseFloat($(this).val()).toFixed(2));
         });
     });
+app.controller('validateCtrl', function($scope) {
+     $scope.coffees = {
+            'Spain': ['Malaga','Madrid','Valencia','Corralejo'],
+            'Estonia': ['Tallinn', 'Haapsalu', 'Tartu'],
+            'Austria': ['Vienna', 'Salzburg', 'Innsbruck']
+          };
+
+          $scope.getSelectedCountry = function() {
+            $scope.strCountry = $scope.countrySrc;
+          };
+});
 </script>
 <head>
     <style>
 h2   {color: yellow}
+
 
 
     </style>
@@ -32,17 +44,56 @@ h2   {color: yellow}
     </div>
 </header>
 <div ng-app="clickArea" ng-cloak ng-controller="myCtrl">
-<div class="w3-card-4 w3-margin w3-padding-small w3-left">
-    <h3>click()</h3>
-    <button id="buttonToClick" ng-click="clickButton()" class="w3-btn w3-padding w3-teal">Button</button>
-    <a id="linkToClick" href="https://www.example.com">Link</a><br>
-    <p class="successMessage w3-text-green">{{successtext}}</p>
-</div>
+    <div class="w3-card-4 w3-margin w3-padding-small w3-left">
+        <h3>click()</h3>
+        <button id="buttonToClick" ng-click="clickButton()" class="w3-btn w3-padding w3-teal">Button</button>
+        <a id="linkToClick" href="https://www.example.com">Link</a><br>
+        <p class="successMessage w3-text-green">{{successtext}}</p>
+    </div>
     <div class="w3-card-4 w3-margin w3-padding-small w3-left" style="width:300px;">
         <h3>sendKeys()</h3>
         Basic text input: <input type="text">
         </br>Input that formats with decimals: <input type="text" class="floatNumberField"/>
 
+    </div>
+    <div class="w3-card-4 w3-margin w3-padding-small w3-left" ng-controller="validateCtrl">
+        <h3>Select</h3>
+        <div>
+            <label for="tea">Tea</label><br>
+            <select id="tea">
+                <option value=""></option>
+                <option value="Assam">Assam</option>
+                <option value="Ceylon">Ceylon</option>
+                <option value="Earl_Grey">Earl Grey</option>
+                <option value="Pu_Erh">Pu Erh</option>
+                <option value="Lady_Grey">Lady Grey</option>
+            </select>
+        </div>
+        <div>
+            <label for="refreshment">Refreshment</label><br>
+            <select id="refreshment" size="5" multiple>
+                <option value="1">Rose Lemonade</option>
+                <option value="2">Lavender Lemonade</option>
+                <option value="3">Diet Coke</option>
+                <option value="4">Still Water</option>
+                <option value="5">Sparkling Water</option>
+            </select>
+        </div>
+        <div>
+            <label for="country">Country</label><br>
+            <select id="country" ng-change="getSelectedCountry()"
+                    ng-model="countrySrc"
+                    ng-options="country for (country, cities) in coffees" required>
+                <option value=''></option>
+            </select>
+        </div>
+        <div>
+            <label for="city">City</label><br>
+            <select id="city" ng-disabled="!countrySrc" ng-model="citySrc"
+                    ng-options="city for city in countrySrc" required>
+                <option value=''></option>
+            </select>
+        </div>
     </div>
 </div>
 </body>

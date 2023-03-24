@@ -1,6 +1,7 @@
 package com.imalittletester.browser;
 
 import org.openqa.selenium.WebDriver;
+import utils.BrowserGetter;
 
 public class SetupHelper {
 
